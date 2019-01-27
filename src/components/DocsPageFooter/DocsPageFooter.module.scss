@@ -1,0 +1,71 @@
+@import "../../shared/colors.module.scss";
+
+.DocsPageFooter{
+    background-color: $sec-color;
+    width: 100vw;
+
+    .container{
+        width: 100%;
+
+        .links{
+            display: flex;
+            justify-content: space-around;
+            list-style: none;
+            padding: 2rem 0;
+            max-width: 90rem;
+            align-self: flex-end;
+
+            .link{
+                text-align: left;
+                max-width: 20rem;
+                
+                .desc{
+                    color: $main-color;
+                    font-size: 14px;
+                    text-align: left;
+                    margin-bottom: 1rem;
+                }
+
+                > a{
+                    color: white;
+                    font-size: 16px;
+                    border-bottom: 1px solid $darkertitle-color;
+                    text-decoration: none;
+
+                    @media( min-width: 45rem ){
+                        font-size: 30px;
+                    }
+                }
+
+                &:last-child{
+                    align-self: right;
+                    text-align: right;
+
+                    .desc{
+                        text-align: right;
+                    }
+                }
+                
+                @media (min-width: 100rem){
+                    max-width: 30rem;
+                    margin: 0 5rem;
+                }
+            }
+
+            @media(min-width: 100rem){
+                min-width: 65rem;
+                justify-content: space-between;
+                margin-right: 4vw;
+            }
+        }
+
+        @media(min-width: 55rem){
+            width: 67%;
+        }
+        @media(min-width: 100rem){
+            width: 77%;
+            display: flex;
+            justify-content: flex-end;
+        }
+    }
+}

@@ -1,0 +1,27 @@
+.NavItems {
+    display: flex;
+    width: 70%;
+    overflow-x: scroll;
+    margin: 0 5%;
+    height: 100%;
+
+    mask-image: -webkit-linear-gradient(to right, transparent, black 20px, black 90%, transparent);
+    mask-image: -moz-linear-gradient(to right, transparent, black 20px, black 90%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 20px, black 90%, transparent);
+    -webkit-mask-image: -webkit-linear-gradient(to right, transparent, black 20px, black 90%, transparent);
+    -webkit-mask-image: -moz-linear-gradient(to right, transparent, black 20px, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 20px, black 90%, transparent);
+
+    @media(min-width: 45rem){
+        mask-image: none;
+        -webkit-mask-image: none;
+
+        min-width: 21rem;
+        margin: 0;
+        overflow-x: hidden;
+    }
+
+    @media(min-width: 80rem){
+        margin: 0 3%;
+    }
+}

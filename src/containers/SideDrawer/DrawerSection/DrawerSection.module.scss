@@ -1,0 +1,110 @@
+@import "../../../shared/colors.module.scss";
+
+.DrawerSection{
+    margin-left: 2rem;
+    margin-bottom: 1rem;
+    color: $darkertitle-color;
+
+    .title {
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        font-weight: 700;
+        font-size: 16px;
+        cursor: pointer;
+        background: none;
+        border: none;
+        outline: none;
+        color: $darkertitle-color;
+        margin: 0.6rem 0;
+
+        svg {
+            transition: all 0.2s ease-in-out;
+        }
+    
+        + .links {
+            height: 0;
+            overflow: hidden;
+        }
+
+        &.active{
+            color: $sec-color;
+
+            + .links{
+                overflow: visible;
+                height: auto;
+            }
+
+            svg {
+                transform: rotateX(180deg);
+            }
+        }
+
+        @media(min-width: 55rem){
+            font-size: 14px;
+        }
+    }
+
+    ol.links{
+        margin-left: 1rem;
+
+        a > .current{
+            left: -2.5rem;
+        }
+    }
+
+    .links{
+        text-decoration: none;
+        font-style: none;
+
+        ul {
+            a {
+                margin: 0.2rem 0;
+                > .subtitle{
+                    margin-left: 1.5rem;
+                }
+            }
+        }
+
+        a {
+            display: block;
+            text-decoration: none;
+            font-style: normal;
+            position: relative;
+            margin: 0.5rem 0;
+            color: $sec-color;
+            width: auto;
+
+            > .subtitle{
+                text-transform: capitalize;
+            }
+    
+            > .current{
+                display: none;
+                position: absolute;
+                top: 0;
+                left: -2rem;
+                border-left: 5px solid $main-color;
+                color: transparent;
+                height: 1.5rem;
+            }
+
+            &.active{
+                font-weight: 600;
+                color: $sec-color;
+
+                > .subtitle {
+                    color: $sec-color;
+                    font-weight: bold;
+                }
+
+                > .current {
+                    display: inline-block;
+                }
+            }
+
+            &:hover{
+                color: lighten($sec-color, 50%);
+            }
+        }
+    }
+}

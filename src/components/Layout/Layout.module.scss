@@ -1,0 +1,7 @@
+.Layout{
+    margin-top: 3rem;
+
+    @media(min-width: 80rem){
+        margin-top: 4rem;
+    }
+}

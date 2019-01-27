@@ -1,0 +1,84 @@
+@import "../../shared/colors.module.scss";
+
+.codeLive{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 2rem 0;
+    line-height: 1.6;
+
+    .title{
+        text-transform: uppercase;
+        color: $title-color;
+        font-weight: 600;
+        padding: 0.5rem;
+    }
+
+    .codeEditor{
+        .editorTitle{
+            @extend .title;
+            background-color: $back-color;
+        }
+
+        .editor{
+            background-color: $sec-color;
+            font-weight: 600;
+            margin: 0.5rem;
+            max-height: 22rem;
+            overflow: auto;
+        }
+        
+        width: 100%;
+        background-color: $sec-color;
+        border-radius: 10px 10px 0 0;
+        overflow: hidden;
+
+        @media(min-width: 45rem){
+            width: 70%;
+            border-radius: 10px 0 0 10px;
+        }
+    }
+
+    .codeResult{
+        .resultTitle{
+            @extend .title;
+            background-color: $lightergray-color;
+            color: $darkertitle-color;
+        }
+
+        .errorTitle{
+            @extend .title;
+            background-color: #ff6464;
+            color: whitesmoke;
+        }
+
+        > div:last-child{
+            padding: 1rem;
+            max-height: 22rem;
+            overflow: auto;
+        }
+
+        width: 100%;
+        border: 1px solid $lightergray-color;
+        border-radius: 0 0 10px 10px;
+        border-top: none;
+        overflow: hidden;
+
+        textarea {
+            border: 1px solid $text-color;
+            padding: 0.2rem;
+            margin: 0.4rem;
+            vertical-align: middle;
+        }
+
+        @media(min-width: 45rem){
+            width: 30%;
+            border-left: none;
+            border-radius: 0 10px 10px 0;
+        }
+    }
+
+    @media(min-width: 45rem){
+        flex-direction: row;
+    }
+}

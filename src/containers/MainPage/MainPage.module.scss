@@ -1,0 +1,94 @@
+
+@import "../../shared/styles.module.scss";
+
+.MainPage{
+    @extend .PageStyles;
+
+    width: 99%;
+    padding: 0 1rem;
+    margin: 0 auto;
+    max-width: 90rem;
+
+    .Advantages{
+        overflow-x: auto;
+        -webkit-mask-image: linear-gradient(to right, transparent, white 10px, white 90%, transparent);
+        white-space: nowrap;
+        padding: 0 0.5rem;
+        margin: 3rem 0;
+
+        .Advantage{
+            position: relative;
+            margin-right: 3rem;
+            line-height: 2;
+            display: inline-block;
+            white-space: normal;
+            width: 75%;
+            vertical-align: top;
+
+            .title{
+                font-weight: 100;
+                margin-bottom: 1rem;
+                letter-spacing: 0.5px;
+                color: $darkertitle-color;
+                max-width: none;
+            }
+
+            > p{
+                line-height: 1.5;
+                font-size: 1rem;
+                margin-bottom: 1rem;
+                color: inherit;
+
+                @media( min-width: 45rem){
+                    font-size: 1.1rem;
+                    line-height: 1.7;
+                }
+            }
+
+            &:last-child{
+                margin-right: 0;
+            }
+
+            @media(min-width: 45rem){
+                width: auto;
+                display: block;
+            }
+        }
+
+        @media(min-width: 45rem){
+            padding: 0;
+            display: flex;
+            -webkit-mask-image: none;
+            justify-content: flex-start;
+        }
+    }
+
+    .box {
+        display: block;
+
+        .desc{
+            width: 100%;
+            margin-right: none;
+
+            @media(min-width: 80rem){
+                width: 40%;
+                margin-right: 4rem;
+            }
+        }
+
+        > div:last-child{
+            align-self: flex-start;
+            width: 100%;
+        }
+
+        @media(min-width: 80rem){
+            margin: 1.5rem 0;
+            margin-top: 3rem;
+            display: flex;
+        }
+    }
+
+    @media(min-width: 45rem){
+        width: 90%;
+    }
+}

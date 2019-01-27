@@ -1,0 +1,28 @@
+.Logo{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #61dafb;
+    padding: 0.5rem;
+    margin-right: 0;
+
+    img {
+        height: 1.5rem;
+    }
+
+    .brand {
+        margin-left: 10px;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 20px;
+        display: none;
+
+        @media(min-width: 55rem){
+            display: inline-block;
+        }
+    }
+
+    @media(min-width: 55rem){
+        margin-right: 5%;
+    }
+}

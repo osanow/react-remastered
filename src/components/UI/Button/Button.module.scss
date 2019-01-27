@@ -1,0 +1,49 @@
+@import "../../../shared/colors.module.scss";
+
+.Button{
+    background: none;
+    border: none;
+    outline: none;
+
+    position: relative;
+    display: inline-block;
+    margin: 1rem 0;
+    padding: 0.5rem 1.5rem;
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+    color: $main-color;
+
+    > a {
+        text-decoration: none;
+        color: $main-color;
+        transition: all 0.1s ease-in-out;
+        font-size: 1rem;
+
+        @media(min-width: 80rem){
+            font-size: 1.2rem;
+        }
+    }
+
+    &:hover {
+        color: $link-color;
+        > a{
+            color: $link-color;
+        }
+    }
+
+    &.highlighted {
+        background: $main-color;
+        
+        > a{
+            color: #000;
+        }
+
+        &:hover{
+            background: white;
+        }
+    }
+
+    @media(min-width: 80rem){
+        padding: 0.8rem 2rem;
+    }
+}

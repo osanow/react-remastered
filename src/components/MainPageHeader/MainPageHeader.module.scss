@@ -1,0 +1,77 @@
+@import "../../shared/colors.module.scss";
+
+.MainHeader{
+    background: {
+        color: $sec-color;
+        image: url("../../assets/logo-back.svg");
+        repeat: no-repeat;
+        position: 25vw 5vh;
+        size: 30rem;
+    }
+    width: 100%;
+    padding: 2rem 0;
+    color: white;
+
+    .container{
+        width: 90%;
+        margin: auto auto;
+
+        .title{
+            color: $main-color;
+            text-align: center;
+            font-size: 2rem;
+            margin-top: 1rem;
+
+            @media(min-width: 30rem){
+                font-size: 3rem;
+            }
+            @media(min-width: 80rem){
+                font-size: 4rem;
+                margin-top: 2rem;
+            }
+        }
+
+        .desc{
+            color: inherit;
+            margin: 0 auto;
+            margin-top: 1rem;
+            width: 60%;
+            text-align: center;
+            font: {
+                size: 1rem;
+                weight: 100;
+            }
+
+            @media(min-width: 30rem){
+                font-size: 1.5rem;
+                width: 100%;
+            }
+            @media(min-width: 80rem){
+                font-size: 2rem;
+            }
+        }
+
+        .box{
+            padding-left: 1.5rem;
+            margin-top: 1.5rem;
+            width: 100%;
+            text-align: center;
+
+            @media(min-width: 80rem){
+                margin-top: 2.5rem;
+            }
+        }
+        
+        @media(min-width: 30rem){
+            padding: 0 1rem;
+        }
+    }
+    @media(min-width: 30rem){
+        background-position: 55vw 5vh;
+    }
+    @media(min-width: 80rem){
+        height: 60vh;
+        background-position: right 0rem;
+        background-size: 120vh;
+    }
+}

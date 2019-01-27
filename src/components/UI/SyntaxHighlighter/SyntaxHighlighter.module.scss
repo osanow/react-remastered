@@ -1,0 +1,58 @@
+.HighlighterBox{
+    padding: 1rem 1.5rem;
+    border-radius: 10px;
+    background-color: #282c34;
+    overflow: hidden;
+    width: 100vw;
+    margin: 2rem -7.5%;
+
+    .SyntaxHighlighter{
+        display: block;
+        color: white;
+        tab-size: 1.5em;
+        font-size: 14px;
+        line-height: 20px;
+        white-space: pre-wrap;
+        word-break: break-word;
+    
+        .comment{
+            color: #b2b2b2 !important;
+            span {
+                color: #b2b2b2 !important;
+            }
+        }
+
+        .tag {
+            color: #fc929e;
+        }
+        
+        .attrName{
+            color: #c5a5c5;
+        }
+        
+        .attrValue{
+            color: #8dc891;
+        }
+
+        .punctuation{
+            color: #88c6be;
+        }
+
+        .keyword{
+            color: #c5a5c5;
+        }
+
+        .function{
+            color: #79b6f2;
+        }
+    }
+
+    @media(min-width: 55rem){
+        margin: 2rem auto;
+        margin-top: 25px;
+        margin-left: -30px;
+        margin-right: -30px;
+        margin-bottom: 25px;
+        width: 110%;
+    }
+}

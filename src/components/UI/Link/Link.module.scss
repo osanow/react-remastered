@@ -1,0 +1,23 @@
+@import "../../../shared/colors.module.scss";
+
+.Link{
+    font-style: normal;
+    margin: 0.2rem 0;
+
+    > a {
+        text-decoration: none;
+        color: inherit;
+        font-weight: 400;
+
+        > svg {
+            font-size: 0.9em;
+            padding: 0.1em;
+            margin: 0 0.3rem;
+            color: $title-color;
+        }
+
+        &:hover{
+            color: $main-color;
+        }
+    }
+}
