@@ -28,7 +28,7 @@ describe('<SideDrawer />', () => {
         expect(wrapper.state('drawerOpened')).toEqual(false);
     });
 
-    it('should toggle drawer in mobile mode after click on button das', () => {
+    it('should toggle drawer in mobile mode after click on button', () => {
         const wrapper = mount(<SideDrawer />);
         wrapper.find(`div[className~="${classes.DrawerButton}"]`).simulate('click');
         expect(wrapper.state('drawerOpened')).toEqual(true);
