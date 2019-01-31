@@ -12,7 +12,7 @@ const AuthBar = () => {
     return (
         <nav className={classes.AuthBar}>
             <Link to="/">     Log in      </Link>
-            <Link to="/auth">    Sign in     </Link>
+            <Link to="/">    Sign in     </Link>
             <button className={classes.AuthIcon}>
                 <FontAwesomeIcon icon="user" />
             </button>

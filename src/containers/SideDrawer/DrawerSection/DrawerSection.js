@@ -5,7 +5,7 @@ import { NavHashLink } from 'react-router-hash-link';
 
 import classes from './DrawerSection.module.scss';
 
-const DrawerSection = (props) => {
+export const DrawerSection = (props) => {
 
     let content = [];
 
@@ -107,5 +107,4 @@ const DrawerSection = (props) => {
         </section>
     );
 }
-export { DrawerSection };
 export default React.memo(DrawerSection);

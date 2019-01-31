@@ -9,9 +9,12 @@ describe('<SideDrawer />', () => {
 
     const props = {
         links: {
-            test: {
-                test: 'test.html',
-            }
+            test1: {
+                test11: 'test.html',
+            },
+            test2: {
+                test21: 'testing.html',
+            },
         }
     }
 
@@ -26,6 +29,7 @@ describe('<SideDrawer />', () => {
         const wrapper = shallow(<SideDrawer />);
         wrapper.instance().onNavigateHandler();
         expect(wrapper.state('drawerOpened')).toEqual(false);
+        expect(wrapper.exists(`div[className~="${classes.show}"]`)).toEqual(false);
     });
 
     it('should toggle drawer in mobile mode after click on button', () => {
@@ -35,5 +39,9 @@ describe('<SideDrawer />', () => {
         expect(wrapper.exists(`div[className~="${classes.show}"]`)).toEqual(true);
         wrapper.unmount();
     });
+
+    it('should be opened only 1 <DrawerSection /> at the same time', () => {
+
+    })
 
 });
