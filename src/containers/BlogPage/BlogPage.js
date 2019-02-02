@@ -3,7 +3,7 @@ import { Switch,  Redirect } from 'react-router-dom';
 
 import SideDrawer from '../SideDrawer/SideDrawer';
 import styles from '../../shared/styles.module.scss';
-import { communitySideLinks } from '../../data/data';
+import { blogSideLinks } from '../../data/data';
 import Spinner from '../../components/UI/Spinner/Spinner';
 import { refreshPosition, initPageRouting, getCurrentRoute } from '../../shared/utility';
 
@@ -20,7 +20,7 @@ class DocsPage extends Component {
     }
 
     componentWillMount() {
-        this.data.links = JSON.parse(JSON.stringify(communitySideLinks));
+        this.data.links = JSON.parse(JSON.stringify(blogSideLinks));
 
         let currentRoute;
         [this.data.routes, currentRoute] = initPageRouting(this.data.links, this.props.location.pathname, this.data.subpageName, 'BlogPage', 1);
