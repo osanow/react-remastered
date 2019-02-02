@@ -42,7 +42,7 @@ export const toCapitalize = (text) => {
         });
 }
 
-export const initPageRouting = ( links, pathname, subpageName, directory ) => {
+export const initPageRouting = ( links, pathname, subpageName, directory, limit) => {
     let currentRoute = 0;
     let counter = 0;
     let routes = [];
@@ -54,7 +54,7 @@ export const initPageRouting = ( links, pathname, subpageName, directory ) => {
                     currentRoute = routes.length;
 
             let importPath = () => import(`../containers/${directory}/Pages/${links[section][name].replace('.html', '.js')}`);
-            if (counter > 4)
+            if (counter > limit)
                 importPath = () => import('../components/NotFoundPage/NotFoundPage');
 
             let Page = lazy(importPath);

@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom';
 import NavTitle from '../../../components/UI/NavTitle/NavTitle';
 import SyntaxHighlighter from '../../../components/UI/SyntaxHighlighter/SyntaxHighlighter';
 
-const page = (props) => (
+const page = ({title}) => (
     <>
         <section>
-            <h1> {props.title} </h1>
+            <h1> {title} </h1>
             <p> Use an integrated toolchain for the best user and developer experience. </p>
             <p>This page describes a few popular React toolchains which help with tasks like:</p>
             <br/>
@@ -24,8 +24,8 @@ const page = (props) => (
         <section>
 
             <NavTitle id="you-might-not-need-a-toolchain"><h2>You Might Not Need a Toolchain</h2></NavTitle>
-            <p>If you don’t experience the problems described above or don’t feel comfortable using JavaScript tools yet, 
-                consider <Link to="/docs/add-react-to-a-website.html">adding React as a plain {'<script>'} tag on an HTML page</Link>, 
+            <p>If you don’t experience the problems described above or don’t feel comfortable using JavaScript tools yet,
+                consider <Link to="/docs/add-react-to-a-website.html">adding React as a plain {'<script>'} tag on an HTML page</Link>,
                 optionally with <Link to="/docs/add-react-to-a-website.html#optional-try-react-with-jsx">JSX</Link>.</p>
 
             <p>This is also <strong>the easiest way to integrate React into an existing website</strong>. You can always add a larger toolchain if you find it helpful!</p>
@@ -43,10 +43,10 @@ const page = (props) => (
             </ul>
 
             <NavTitle id="create-react-app"><h3>Create React App</h3></NavTitle>
-            <p><a target="_blank" rel="noopener noreferrer" href="http://github.com/facebookincubator/create-react-app">Create React App</a> is a comfortable environment for <strong>learning React</strong>, and is the best way    
+            <p><a target="_blank" rel="noopener noreferrer" href="http://github.com/facebookincubator/create-react-app">Create React App</a> is a comfortable environment for <strong>learning React</strong>, and is the best way
                 to start building <strong>a new single-page application</strong> in React.</p>
 
-            <p>It sets up your development environment so that you can use the latest JavaScript features, provides a nice developer experience, 
+            <p>It sets up your development environment so that you can use the latest JavaScript features, provides a nice developer experience,
                 and optimizes your app for production. You’ll need to have Node >= 6 and npm >= 5.2 on your machine. To create a project, run:</p>
 
             <SyntaxHighlighter code={`npx create-react-app my-app
@@ -56,22 +56,22 @@ npm start`} />
                 <h3>Note</h3><br/>
                 npx on the first line is not a typo — it’s a package runner tool that comes with npm 5.2+.
             </blockquote>
-            <p>Create React App doesn’t handle backend logic or databases; it just creates a frontend build pipeline, 
+            <p>Create React App doesn’t handle backend logic or databases; it just creates a frontend build pipeline,
                 so you can use it with any backend you want. Under the hood, it uses <a target="_blank" rel="noopener noreferrer" href="http://babeljs.io/">Babel</a> and <a target="_blank" rel="noopener noreferrer" href="https://webpack.js.org/">webpack</a>, but you don’t need to know anything about them.</p>
             <p>When you’re ready to deploy to production, running npm run build will create an optimized build of your app in the
                 build folder. You can learn more about Create React App <a target="_blank" rel="noopener noreferrer" href="https://github.com/facebookincubator/create-react-app#create-react-app-">from its README</a> and the <a target="_blank" rel="noopener noreferrer" href="https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#table-of-contents">User Guide</a>.</p>
- 
+
             <NavTitle id="nextjs"><h3>Next.js</h3></NavTitle>
-            <p><a target="_blank" rel="noopener noreferrer" href="https://nextjs.org/">Next.js</a> is a popular and lightweight framework for <strong>static and server‑rendered applications</strong> built with React. 
+            <p><a target="_blank" rel="noopener noreferrer" href="https://nextjs.org/">Next.js</a> is a popular and lightweight framework for <strong>static and server‑rendered applications</strong> built with React.
                 It includes <strong>styling and routing solutions</strong> out of the box, and assumes that you’re using <a target="_blank" rel="noopener noreferrer" href="https://nodejs.org/">Node.js</a> as the server environment.</p>
 
             <p>Learn Next.js from <a target="_blank" rel="noopener noreferrer" href="https://nextjs.org/learn/">its official guide</a>.</p>
 
             <NavTitle id="gatsby"><h3>Gatsby</h3></NavTitle>
-            <p><a target="_blank" rel="noopener noreferrer" href="https://www.gatsbyjs.org/">Gatsby</a> is the best way to create <strong>static websites</strong> with React. It lets you use React components, but outputs 
+            <p><a target="_blank" rel="noopener noreferrer" href="https://www.gatsbyjs.org/">Gatsby</a> is the best way to create <strong>static websites</strong> with React. It lets you use React components, but outputs
                 pre-rendered HTML and CSS to guarantee the fastest load time.</p>
             <p>Learn Gatsby from <a target="_blank" rel="noopener noreferrer" href="https://www.gatsbyjs.org/docs/">its official guide</a> and a <a target="_blank" rel="noopener noreferrer" href="https://www.gatsbyjs.org/docs/gatsby-starters/">gallery of starter kits</a>.</p>
- 
+
             <NavTitle id="more-flexible-toolchains"><h3>More Flexible Toolchains</h3></NavTitle>
             <p>The following toolchains offer more flexiblity and choice. We recommend them to more experienced users:</p>
             <ul>

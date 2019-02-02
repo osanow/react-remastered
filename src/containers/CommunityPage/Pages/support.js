@@ -14,7 +14,7 @@ const page = () => (
         <section>
             <NavTitle id="stack-overflow"><h2>Stack Overflow</h2></NavTitle>
             <p>Stack Overflow is a popular forum to ask code-level questions or if you’re stuck with a specific error.
-                Read through the <a href="https://stackoverflow.com/questions/tagged/reactjs">existing questions</a> tagged with <strong>reactjs</strong> or <a href="https://stackoverflow.com/questions/ask?tags=reactjs">ask your own!</a></p>
+                Read through the <a href="https://stackoverflow.com/questions/tagged/reactjs" target="_blank" rel="noopener noreferrer">existing questions</a> tagged with <strong>reactjs</strong> or <a href="https://stackoverflow.com/questions/ask?tags=reactjs">ask your own!</a></p>
         </section>
         <hr />
         <section>
@@ -25,17 +25,17 @@ const page = () => (
             <p>Each community consists of many thousands of React users.</p>
 
             <ul>
-                <li>DEV’s React community</li>
-                <li>Hashnode’s React community</li>
-                <li>Reactiflux online chat</li>
-                <li>Reddit’s React community</li>
-                <li>Spectrum’s React community</li>
+                <li><a href="https://dev.to/t/react" target="_blank" rel="noopener noreferrer">DEV’s React community</a></li>
+                <li><a href="https://hashnode.com/n/reactjs" target="_blank" rel="noopener noreferrer">Hashnode’s React community</a></li>
+                <li><a href="https://discord.gg/0ZcbPKXt5bZjGY5n" target="_blank" rel="noopener noreferrer">Reactiflux online chat</a></li>
+                <li><a href="https://www.reddit.com/r/reactjs/" target="_blank" rel="noopener noreferrer">Reddit’s React community</a></li>
+                <li><a href="https://spectrum.chat/react" target="_blank" rel="noopener noreferrer">Spectrum’s React community</a></li>
             </ul>
         </section>
         <hr />
         <section>
             <NavTitle id="news"><h2>News</h2></NavTitle>
-            <p>For the latest news about React, <a href="https://twitter.com/reactjs">follow <strong>@reactjs</strong> on Twitter</a> and the <Link to="/blog/">official React blog</Link> on this website.</p>
+            <p>For the latest news about React, <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/reactjs">follow <strong>@reactjs</strong> on Twitter</a> and the <Link to="/blog/">official React blog</Link> on this website.</p>
         </section>
     </>
 );

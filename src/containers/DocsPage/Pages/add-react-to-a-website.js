@@ -5,15 +5,15 @@ import { HashLink } from 'react-router-hash-link';
 import NavTitle from '../../../components/UI/NavTitle/NavTitle';
 import SyntaxHighlighter from '../../../components/UI/SyntaxHighlighter/SyntaxHighlighter';
 
-const page = (props) => (
+const page = ({title}) => (
     <>
         <section>
-            <h1> {props.title} </h1>
+            <h1> {title} </h1>
             <p> Use as little or as much React as you need. </p>
             <p>React has been designed from the start for gradual adoption, and <strong>you can use as little or as much React as
                 you need. </strong> Perhaps you only want to add some “sprinkles of interactivity” to an existing page. React components are a great way to do that.</p>
             <br/>
-            <p>The majority of websites aren’t, and don’t need to be, single-page apps. With <strong>a few lines of code</strong> and no build tooling, 
+            <p>The majority of websites aren’t, and don’t need to be, single-page apps. With <strong>a few lines of code</strong> and no build tooling,
                 try React in a small part of your website. You can then either gradually expand its presence, or keep it contained to a few dynamic widgets.</p>
         </section>
         <hr />
@@ -26,7 +26,7 @@ const page = (props) => (
         <hr />
         <section>
             <NavTitle id="add-react-in-one-minute"><h2>Add React in One Minute</h2></NavTitle>
-            <p>In this section, we will show how to add a React component to an existing HTML page. 
+            <p>In this section, we will show how to add a React component to an existing HTML page.
                 You can follow along with your own website, or create an empty HTML file to practice.</p>
             <p>There will be no complicated tools or install requirements — <strong>to complete this section,
                  you only need an internet connection, and a minute of your time</strong>.</p>
@@ -49,7 +49,7 @@ const page = (props) => (
 
             <blockquote>
                 <h3>Tip</h3><br/>
-                You can place a “container” <code>{"<div>"}</code> like this <strong>anywhere</strong> inside the <code>{"<body>"}</code> tag. 
+                You can place a “container” <code>{"<div>"}</code> like this <strong>anywhere</strong> inside the <code>{"<body>"}</code> tag.
                 You may have as many independent DOM containers on one page as you need. They are usually empty — React will replace any
                 existing content inside DOM containers.
             </blockquote>
@@ -74,17 +74,17 @@ const page = (props) => (
 
             <NavTitle id="step-3-create-a-react-domponent"><h3>Step 3: Create a React Component</h3></NavTitle>
             <p>Create a file called <code>like_button.js</code> next to your HTML page.</p>
-            <p>Open <a href="https://cdn.rawgit.com/gaearon/0b180827c190fe4fd98b4c7f570ea4a8/raw/b9157ce933c79a4559d2aa9ff3372668cce48de7/LikeButton.js" target="_blank" rel="noopener noreferrer"><strong>this 
+            <p>Open <a href="https://cdn.rawgit.com/gaearon/0b180827c190fe4fd98b4c7f570ea4a8/raw/b9157ce933c79a4559d2aa9ff3372668cce48de7/LikeButton.js" target="_blank" rel="noopener noreferrer"><strong>this
                 starter code</strong></a> and paste it into the file you created.</p>
 
             <blockquote>
                 <h3>Tip</h3><br/>
-                This code defines a React component called LikeButton. Don’t worry if you don’t understand it yet — we’ll 
+                This code defines a React component called LikeButton. Don’t worry if you don’t understand it yet — we’ll
                 cover the building blocks of React later in our hands-on tutorial and main concepts guide. For now, let’s just get it showing on the screen!
             </blockquote>
 
             <p>After <a href="https://cdn.rawgit.com/gaearon/0b180827c190fe4fd98b4c7f570ea4a8/raw/b9157ce933c79a4559d2aa9ff3372668cce48de7/LikeButton.js" target="_blank" rel="noopener noreferrer"><strong>the starter code</strong></a>, add two lines to the bottom of <code>like_button.js</code>:</p>
-            
+
             <Suspense fallback={<h2>Loading code example...</h2>}>
                 <SyntaxHighlighter code={` // ... the starter code you pasted ...
 
@@ -101,7 +101,7 @@ ReactDOM.render(e(LikeButton), domContainer);`} />
             <a href="https://gist.github.com/gaearon/6668a1f6986742109c00a581ce704605/archive/f6c882b6ae18bde42dcf6fdb751aae93495a2275.zip" target="_blank" rel="noopener noreferrer"><strong>Download the full example (2KB zipped)</strong></a>
 
             <NavTitle id="tip-refuse-a-component"><h3>Tip: Reuse a Component</h3></NavTitle>
-            <p>Commonly, you might want to display React components in multiple places on the HTML page. 
+            <p>Commonly, you might want to display React components in multiple places on the HTML page.
                 Here is an example that displays the “Like” button three times and passes some data to it:</p>
             <a href="https://gist.github.com/gaearon/faa67b76a6c47adbab04f739cba7ceda" target="_blank" rel="noopener noreferrer">View the full example source code</a>
             <a href="https://gist.github.com/gaearon/faa67b76a6c47adbab04f739cba7ceda/archive/9d0dd0ee941fea05fd1357502e5aa348abb84c12.zip" target="_blank" rel="noopener noreferrer">Download the full example (2KB zipped)</a>
@@ -112,8 +112,8 @@ ReactDOM.render(e(LikeButton), domContainer);`} />
             </blockquote>
 
             <NavTitle id="tip-minify-javascript-for-production"><h3>Tip: Minify JavaScript for Production</h3></NavTitle>
-            <p>Before deploying your website to production, be mindful that unminifed JavaScript can significantly slow down the page for your users.</p>   
-            <p>If you already minify the application scripts, <strong>your site will be production-ready</strong> if you 
+            <p>Before deploying your website to production, be mindful that unminifed JavaScript can significantly slow down the page for your users.</p>
+            <p>If you already minify the application scripts, <strong>your site will be production-ready</strong> if you
             ensure that the deployed HTML loads the versions of React ending in <code>production.min.js</code>:</p>
             <SyntaxHighlighter code={`<script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin ></script>
 <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin ></script>`} />
@@ -122,7 +122,7 @@ ReactDOM.render(e(LikeButton), domContainer);`} />
         <hr/>
         <section>
             <NavTitle id="optional-try-react-with-jsx"><h2>Optional: Try React with JSX</h2></NavTitle>
-            <p>In the examples above, we only relied on features that are natively supported by the browsers. 
+            <p>In the examples above, we only relied on features that are natively supported by the browsers.
                 This is why we used a JavaScript function call to tell React what to display:</p>
 
             <Suspense fallback={<h2>Loading code example...</h2>}>
@@ -133,7 +133,7 @@ return e(
     { onClick: () => this.setState({ liked: true }) },
     'Like'
 );`} />
-            </Suspense>     
+            </Suspense>
             <p>However, React also offers an option to use JSX instead:</p>
             <Suspense fallback={<h2>Loading code example...</h2>}>
                 <SyntaxHighlighter code={` // Display a "Like" <button>
@@ -150,9 +150,9 @@ return (
             <p>The quickest way to try JSX in your project is to add this {'<script>'} tag to your page:</p>
 
             <SyntaxHighlighter code={`<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>`} />
-            <p>Now you can use JSX in any <code>{`<script>`}</code> tag by adding <code>type="text/babel"</code> attribute to it. Here is <a target="_blank" rel="noopener noreferrer" href="https://raw.githubusercontent.com/reactjs/reactjs.org/master/static/html/single-file-example.html">an example 
+            <p>Now you can use JSX in any <code>{`<script>`}</code> tag by adding <code>type="text/babel"</code> attribute to it. Here is <a target="_blank" rel="noopener noreferrer" href="https://raw.githubusercontent.com/reactjs/reactjs.org/master/static/html/single-file-example.html">an example
                 HTML file with JSX</a> that you can download and play with.</p>
-            <p>This approach is fine for learning and creating simple demos. However, it makes your website slow and <strong>isn’t 
+            <p>This approach is fine for learning and creating simple demos. However, it makes your website slow and <strong>isn’t
                 suitable for production</strong>. When you’re ready to move forward, remove this new <code>{`<script>`}</code> tag and the <code>type="text/babel"</code>
                 attributes you’ve added. Instead, in the next section you will set up a JSX preprocessor to convert all your <code>{`<script>`}</code> tags automatically.</p>
 
@@ -167,7 +167,7 @@ return (
             </ol>
             <blockquote>
                 <h3>Tip</h3><br/>
-                We’re using npm here only to install the JSX preprocessor; you won’t need it for anything else. 
+                We’re using npm here only to install the JSX preprocessor; you won’t need it for anything else.
                 Both React and the application code can stay as {'<script>'} tags with no changes.
             </blockquote>
             <p>Congratulations! You just added a production-ready JSX setup to your project.</p>
@@ -182,18 +182,18 @@ return (
                 <br/>
                 If you see an error message saying “You have mistakenly installed the babel package”, you might have missed
                 <HashLink scroll={el => el.scrollIntoView({ behavior: 'smooth', block: 'start' })} to="#add-jsx-to-a-project">the previous step</HashLink>. Perform it in the same folder, and then try again.
-            </blockquote> 
+            </blockquote>
 
 
             <p>Don’t wait for it to finish — this command starts an automated watcher for JSX.</p>
 
-            <p>If you now create a file called <code>src/like_button.js</code> with this JSX starter code, the watcher will create a preprocessed 
+            <p>If you now create a file called <code>src/like_button.js</code> with this JSX starter code, the watcher will create a preprocessed
                 <code>like_button.js</code> with the plain JavaScript code suitable for the browser. When you edit the source file with JSX, the transform will re-run automatically.</p>
 
-            <p>As a bonus, this also lets you use modern JavaScript syntax features like classes without worrying about 
+            <p>As a bonus, this also lets you use modern JavaScript syntax features like classes without worrying about
                 breaking older browsers. The tool we just used is called Babel, and you can learn more about it from <a target="_blank" rel="noopener noreferrer" href="http://babeljs.io/docs/en/babel-cli/">its documentation</a>.</p>
 
-            <p>If you notice that you’re getting comfortable with build tools and want them to do more for you, 
+            <p>If you notice that you’re getting comfortable with build tools and want them to do more for you,
                 the <Link to="/docs/create-a-new-react-app.html">next section</Link> describes some of the most popular and approachable toolchains. If not — those script tags will do just fine!</p>
         </section>
     </>

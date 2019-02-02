@@ -2,11 +2,11 @@ import React, {Suspense} from 'react';
 
 import NavTitle from '../../../components/UI/NavTitle/NavTitle';
 import SyntaxHighlighter from '../../../components/UI/SyntaxHighlighter/SyntaxHighlighter';
-  
-const page = (props) => (
+
+const page = ({title}) => (
     <>
         <section>
-            <h1> {props.title} </h1>
+            <h1> {title} </h1>
             <p> Both React and ReactDOM are available over a CDN. </p>
 
             <Suspense fallback={<h2>Loading code example...</h2>}>
@@ -15,7 +15,7 @@ const page = (props) => (
 <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>`
                 }/>
             </Suspense>
-            <p>The versions above are only meant for development, and are not suitable for production. 
+            <p>The versions above are only meant for development, and are not suitable for production.
                 Minified and optimized production versions of React are available at:</p>
 
             <Suspense fallback={<h2>Loading code example...</h2>}>
@@ -32,7 +32,7 @@ const page = (props) => (
             <Suspense fallback={<h2>Loading code example...</h2>}>
                 <SyntaxHighlighter code={`<script crossorigin src="..."></script>`} />
             </Suspense>
-            
+
             <p>We also recommend to verify that the CDN you are using sets the <code>Access-Control-Allow-Origin: *</code> HTTP header.</p>
             <p>This enables a better error handling experience in React 16 and later.</p>
 

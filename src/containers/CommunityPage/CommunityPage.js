@@ -23,7 +23,7 @@ class DocsPage extends Component {
         this.data.links = JSON.parse(JSON.stringify(communitySideLinks));
 
         let currentRoute;
-        [this.data.routes, currentRoute] = initPageRouting(this.data.links, this.props.location.pathname, this.data.subpageName, 'DocsPage');
+        [this.data.routes, currentRoute] = initPageRouting(this.data.links, this.props.location.pathname, this.data.subpageName, 'CommunityPage', 3);
 
         this.setState({ currentRoute: currentRoute });
     }
