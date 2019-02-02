@@ -11,7 +11,7 @@ const page = () => (
                 <li>Calculator Implementation of the iOS calculator built in React</li>
                 <li>Emoji Search Simple React app for searching emoji</li>
                 <li>Github Battle App Battle two Github users and see the most popular Github projects for any language.</li>
-                <li>React Powered Hacker News Client A React & react-router-powered implementation of Hacker News using its Firebase API.</li>
+                <li>React Powered Hacker News Client A React {'&'} react-router-powered implementation of Hacker News using its Firebase API.</li>
                 <li>Pokedex The list of Pokémon with live search</li>
                 <li>Shopping Cart Simple ecommerce cart application built using React</li>
                 <li>Progressive Web Tetris Besides a beautiful, mobile-friendly implementation of Tetris, this project is a playground for integrating and experimenting with web technologies.</li>
