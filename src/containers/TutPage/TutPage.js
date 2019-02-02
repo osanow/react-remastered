@@ -5,7 +5,7 @@ import SideDrawer from '../SideDrawer/SideDrawer';
 import styles from '../../shared/styles.module.scss';
 import { tutSideLinks } from '../../data/data';
 import Spinner from '../../components/UI/Spinner/Spinner';
-import { refreshPosition } from '../../shared/utility';
+import { refreshPosition, toCapitalize } from '../../shared/utility';
 
 class TutPage extends Component {
 
@@ -21,7 +21,7 @@ class TutPage extends Component {
         navTitles: [],
     }
 
-    componentWillMount() {        
+    componentWillMount() {
         if ( this.props.location.hash )
             this.setState({currentTopic: this.props.location.hash});
 
@@ -33,7 +33,7 @@ class TutPage extends Component {
             this.data.Pages.push( lazy( () => import('./Pages/' + url.replace('.html', '.js') ) ) );
             let Page = this.data.Pages[ this.data.Pages.length-1 ];
 
-            let title = this.toCapitalize(section);
+            let title = toCapitalize(section);
 
             this.data.routes.push(<Route exact key={section} name={title} path={"/" + this.data.subpageName + "/" + url} render={() => <Page title={title} />} />);
         }
@@ -55,7 +55,7 @@ class TutPage extends Component {
                                 if (navTitle)
                                     this.data.navTitles.push( {
                                         id: this.data.links[section][sectionItem][subItem],
-                                        offTop: navTitle.offsetTop, 
+                                        offTop: navTitle.offsetTop,
                                     } );
                             }
                         }
@@ -64,16 +64,16 @@ class TutPage extends Component {
                             if (navTitle)
                                 this.data.navTitles.push( {
                                     id: this.data.links[section][sectionItem],
-                                    offTop: navTitle.offsetTop, 
+                                    offTop: navTitle.offsetTop,
                                 } );
                         }
                     }
                 }
             }
             refreshPosition(this.props);
-        }, 200);
+        }, 1000);
     }
-    
+
     onScrollHandler = () => {
         if ( !this.data.navTitles[0] )
             return;
@@ -87,21 +87,11 @@ class TutPage extends Component {
                     this.setState({currentTopic: prevTitle.id});
                 return;
             }
-            else 
-                prevTitle = title;    
+            else
+                prevTitle = title;
         }
         if ( prevTitle !== null && this.state.currentTopic !== prevTitle.id )
             this.setState({currentTopic: prevTitle.id});
-    }
-
-    toCapitalize = ( text ) => {
-        const words = [ ...text.split( " " ) ];
-
-        const newText = words.map( (val) => {
-            return val.length > 2 ? val.charAt(0).toUpperCase() + val.substr(1) : val.charAt(0).toLowerCase() + val.substr(1); 
-        } )
-
-        return newText.join(" ");
     }
 
     render() {
@@ -118,9 +108,9 @@ class TutPage extends Component {
                         </Switch>
                     </div>
                 </div>
-                <SideDrawer 
-                links={this.data.links} 
-                pathname={this.props.history.location.pathname} 
+                <SideDrawer
+                links={this.data.links}
+                pathname={this.props.history.location.pathname}
                 currTopic={this.state.currentTopic}
                 subpage={this.data.subpageName} />
             </>

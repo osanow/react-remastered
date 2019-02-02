@@ -1,3 +1,8 @@
+// .html extension is only for visual aspect :)
+//   ( following react documentation paths )
+//                   =
+//  its not real static sites!
+
 export const footerLinks =  {
     "channels" : {
         "0" : {
@@ -178,7 +183,7 @@ export const docsSideLinks = {
         "Versioning Policy": "faq-versioning.html",
         "Virtual DOM and Internals": "faq-internals.html",
     }
-}
+};
 
 export const tutSideLinks = {
     "Tutorial": {
@@ -220,7 +225,39 @@ export const tutSideLinks = {
             "Wrapping Up": "#wrapping-up",
         },
     }
-}
+};
+
+export const communitySideLinks = {
+  "community resources":{
+    "Support": "support.html",
+    "Courses": "courses.html",
+    "Examples": "examples.html",
+    "Meetups": "meetups.html",
+    "Conferences": "conferences.html",
+    "Articles": "articles.html",
+    "Podcasts": "podcasts.html",
+    "Videos": "videos.html",
+    "External Resources": "external-resources.html",
+  },
+  "tools": {
+    "Debugging": "debugging.html",
+    "Component Workbenches": "component-workbenches.html",
+    "JSX Integrations": "jsx-integrations.html",
+    "Starter Kits": "starter-kits.html",
+    "Routing": "routing.html",
+    "Model Management": "model-management.html",
+    "Data Fetching": "data-fetching.html",
+    "Testing": "testing.html",
+    "UI Components": "ui-components.html",
+    "Miscellaneous": "miscellaneous.html",
+  }
+};
+
+export const blogSideLinks = {
+  'community resources': {
+    'test': 'test.html',
+  }
+};
 
 export const codeExamples = {
     simple:
@@ -372,4 +409,4 @@ render(
   }
 
  render(<MarkdownEditor />);`
-}
+};
