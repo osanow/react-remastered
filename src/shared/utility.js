@@ -9,6 +9,24 @@ export const updateObject = (oldObject, updatedProperties) => {
     };
 };
 
+Date.prototype.monthNames = [
+    "January", "February", "March",
+    "April", "May", "June",
+    "July", "August", "September",
+    "October", "November", "December"
+];
+
+Date.prototype.getMonthName = function () {
+    return this.monthNames[this.getMonth()];
+};
+
+export const dateFormat = (date = "1/1/1990") => {
+
+    const dataArgs = date.split("-").join(",");
+    const converted = new Date(dataArgs);
+    return `${converted.getMonthName()} ${converted.getDate()}, ${converted.getFullYear()}`;
+}
+
 export const toCapitalize = (text) => {
     const words = [...text.split(" ")];
 
@@ -50,10 +68,10 @@ export const initPageRouting = ( links, subpageName, directory, limit = 99) => {
             if ( name !== "ordered" ){
                 counter++;
                 let importPath;
-                if ( links[section][name].url )
-                    importPath = () => import(`../containers/${directory}/Pages/${links[section][name].url.replace('.html', '.js')}`);
-                else if (counter > limit)
+                if (counter > limit)
                     importPath = () => import('../components/NotFoundPage/NotFoundPage');
+                else if ( links[section][name].url )
+                    importPath = () => import(`../containers/${directory}/Pages/${links[section][name].url.replace('.html', '.js')}`);
                 else
                     importPath = () => import(`../containers/${directory}/Pages/${links[section][name].replace('.html', '.js')}`);
 
@@ -67,7 +85,7 @@ export const initPageRouting = ( links, subpageName, directory, limit = 99) => {
                     path={"/" + subpageName + "/" + (links[section][name].url ? links[section][name].url : links[section][name] )}
                     render={() => <>
                             <Helmet title={title + " - React"} />
-                            <Page title={title} />
+                            <Page title={title} date={ dateFormat(links[section][name].time) } author={links[section][name].author}/>
                         </>}
                     />);
             }

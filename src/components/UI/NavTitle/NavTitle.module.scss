@@ -1,6 +1,7 @@
 .linkContainer{
     display: block;
     position: relative;
+    margin-top: -2rem;
     padding-top: 4rem;
     padding-bottom: 1rem;
 
@@ -25,5 +26,9 @@
         > .linkIcon {
             opacity: 1;
         }
+    }
+
+    & + .linkContainer {
+        padding-bottom: 0;
     }
 }
