@@ -55,7 +55,8 @@ class DocsPage extends Component {
                         </Switch>
                     </div>
                 </div>
-                <SideDrawer links={this.data.links} pathname={this.props.history.location.pathname} subpage={this.data.subpageName} />
+                { this.props.location.pathname.includes("all.html") ? null :
+                <SideDrawer links={this.data.links} pathname={this.props.history.location.pathname} subpage={this.data.subpageName} />}
             </>
         );
     }

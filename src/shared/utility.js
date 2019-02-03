@@ -85,11 +85,29 @@ export const initPageRouting = ( links, subpageName, directory, limit = 99) => {
                     path={"/" + subpageName + "/" + (links[section][name].url ? links[section][name].url : links[section][name] )}
                     render={() => <>
                             <Helmet title={title + " - React"} />
-                            <Page title={title} date={ dateFormat(links[section][name].time) } author={links[section][name].author}/>
+                            <Page title={title}
+                            date={ dateFormat(links[section][name].time) }
+                            author={links[section][name].author}/>
                         </>}
                     />);
             }
         }
+    }
+
+    if ( directory === 'BlogPage' ){
+        const AllPage = lazy(() => import(`../containers/${directory}/Pages/all.js`));
+
+        routes.push(
+            <Route exact
+            key={directory+"allPage"}
+            path={`/${subpageName}/all.html`}
+            render={ () => <>
+                <Helmet title={'React - All posts'} />
+                <AllPage
+                links={links}
+                title={'All posts'} />
+            </> } />
+        );
     }
 
     return routes;
