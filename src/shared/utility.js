@@ -42,40 +42,53 @@ export const toCapitalize = (text) => {
         });
 }
 
-export const initPageRouting = ( links, pathname, subpageName, directory, limit) => {
-    let currentRoute = 0;
+export const initPageRouting = ( links, subpageName, directory, limit = 99) => {
     let counter = 0;
     let routes = [];
     for (let section in links) {
         for (let name in links[section]) {
-            counter++;
+            if ( name !== "ordered" ){
+                counter++;
+                let importPath;
+                if ( links[section][name].url )
+                    importPath = () => import(`../containers/${directory}/Pages/${links[section][name].url.replace('.html', '.js')}`);
+                else if (counter > limit)
+                    importPath = () => import('../components/NotFoundPage/NotFoundPage');
+                else
+                    importPath = () => import(`../containers/${directory}/Pages/${links[section][name].replace('.html', '.js')}`);
 
-            if ( pathname.includes(links[section][name]) )
-                    currentRoute = routes.length;
+                let Page = lazy(importPath);
+                let title = toCapitalize(name);
 
-            let importPath = () => import(`../containers/${directory}/Pages/${links[section][name].replace('.html', '.js')}`);
-            if (counter > limit)
-                importPath = () => import('../components/NotFoundPage/NotFoundPage');
-
-            let Page = lazy(importPath);
-            let title = toCapitalize(name);
-
-            if (!(name === "value" || name === "ordered"))
-                routes.push(<Route exact key={name} name={title} path={"/" + subpageName + "/" + links[section][name]} render={() => <> <Helmet title={title + " - React"} /> <Page title={title} /> </>} />);
+                routes.push(
+                    <Route exact
+                    key={name}
+                    name={title}
+                    path={"/" + subpageName + "/" + links[section][name]}
+                    render={() => <>
+                            <Helmet title={title + " - React"} />
+                            <Page title={title} />
+                        </>}
+                    />);
+            }
         }
     }
 
-    return [ routes, currentRoute ];
+    return routes;
 }
 
-export const getCurrentRoute = (links, pathname) => {
-    let counter = 0;
+export const getCurrentRoute = (links, pathname, counter = 0) => {
     for (let section in links) {
         for (let name in links[section]) {
-            if ( pathname.includes(links[section][name]) )
+            if ( links[section][name].value && pathname.includes(links[section][name].value.url) ) {
+                console.log(counter);
                 return counter;
+            }
+            else if ( pathname.includes(links[section][name]) ){
+                console.log(counter);
+                return counter;
+            }
             counter++;
         }
     }
-    return -1;
 }

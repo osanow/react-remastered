@@ -256,90 +256,66 @@ export const communitySideLinks = {
 export const blogSideLinks = {
   "Recent posts": {
     "React v16.7: No, This Is Not the One With Hooks": {
-      "value": {
-        "url": "react-v-16-7.html",
-        "author": "Andrew Clark",
-        "time": "2018-12-19",
-      }
+      "url": "react-v-16-7.html",
+      "author": "Andrew Clark",
+      "time": "2018-12-19",
     },
     "React 16.x Roadmap": {
-      "value": {
-        "url": "react-16-roadmap.html",
-        "author": "Dan Abramov",
-        "time": "2018-11-27",
+      "url": "react-16-roadmap.html",
+      "author": "Dan Abramov",
+      "time": "2018-11-27",
       }
     },
     "React Conf recap: Hooks, Suspense, and Concurrent Rendering": {
-      "value": {
-        "url": "react-conf-recap.html",
-        "author": "Tom Occhino",
-        "time": "2018-11-13",
-      }
+      "url": "react-conf-recap.html",
+      "author": "Tom Occhino",
+      "time": "2018-11-13",
     },
     "React v16.6.0: lazy, memo and contextType": {
-      "value": {
-        "url": "react-v-16-6.html",
-        "author": "Sebastian Markbåge",
-        "time": "2018-10-23",
-      }
+      "url": "react-v-16-6.html",
+      "author": "Sebastian Markbåge",
+      "time": "2018-10-23",
     },
     "Create React App 2.0: Babel 7, Sass, and More": {
-      "value": {
-        "url": "create-react-app-v2.html",
-        "author": ["Joe Haddad", "Dan Abramov" ],
-        "time": "2018-10-01",
-      }
+      "url": "create-react-app-v2.html",
+      "author": ["Joe Haddad", "Dan Abramov" ],
+      "time": "2018-10-01",
     },
     "Introducing the React Profiler": {
-      "value": {
-        "url": "introducing-the-react-profiler.html",
-        "author": "Brian VaughnJoe Haddad and Dan Abramov",
-        "time": "2018-09-10",
-      }
+      "url": "introducing-the-react-profiler.html",
+      "author": "Brian VaughnJoe Haddad and Dan Abramov",
+      "time": "2018-09-10",
     },
     "React v16.4.2: Server- side vulnerability fix": {
-      "value": {
-        "url": "react-v-16-4-2.html",
-        "author": "Dan Abramov",
-        "time": "2018-08-01",
-      }
+      "url": "react-v-16-4-2.html",
+      "author": "Dan Abramov",
+      "time": "2018-08-01",
     },
     "You Probably Don't Need Derived State": {
-      "value": {
-        "url": "you-probably-dont-need-derived-state.html",
-        "author": "Brian Vaughn",
-        "time": "2018-06-07",
-      }
+      "url": "you-probably-dont-need-derived-state.html",
+      "author": "Brian Vaughn",
+      "time": "2018-06-07",
     },
     "React v16.4.0: Pointer Events": {
-      "value": {
-        "url": "react-v-16-4.html",
-        "author": "Andrew Clark",
-        "time": "2018-05-23",
-      }
+      "url": "react-v-16-4.html",
+      "author": "Andrew Clark",
+      "time": "2018-05-23",
     },
     "React v16.3.0: New lifecycles and context API": {
-      "value": {
-        "url": "react-v-16-3.html",
-        "author": "Brian Vaughn",
-        "time": "2018-03-29",
-      }
+      "url": "react-v-16-3.html",
+      "author": "Brian Vaughn",
+      "time": "2018-03-29",
     },
     "Update on Async Rendering": {
-      "value": {
-        "url": "update-on-async-rendering.html",
-        "author": "Brian Vaughn",
-        "time": "2018-03-27",
-      }
+      "url": "update-on-async-rendering.html",
+      "author": "Brian Vaughn",
+      "time": "2018-03-27",
     },
     "Sneak Peek: Beyond React 16": {
-      "value": {
-        "url": "sneak-peek-beyond-react-16.html",
-        "author": "Sophie Alpert",
-        "time": "2018-03-01",
-      }
+      "url": "sneak-peek-beyond-react-16.html",
+      "author": "Sophie Alpert",
+      "time": "2018-03-01",
     },
-  }
 };
 
 export const codeExamples = {

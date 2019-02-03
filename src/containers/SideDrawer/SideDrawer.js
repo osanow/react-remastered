@@ -14,7 +14,7 @@ class SideDrawer extends Component{
 
     data = {
         toggleSideDrawerButton: React.createRef(),
-        activeSideClasses: classes.SideDrawer
+        activeSideDrawerClasses: classes.SideDrawer
     }
 
     componentWillMount() {
@@ -38,16 +38,16 @@ class SideDrawer extends Component{
         const drawerToggleButton = this.data.toggleSideDrawerButton.current;
 
         if ( !drawerToggleButton.className.includes('active') )
-            this.data.activeSideClasses = [ classes.SideDrawer, classes.show ].join(' ');
+            this.data.activeSideDrawerClasses = [ classes.SideDrawer, classes.show ].join(' ');
         else
-            this.data.activeSideClasses = classes.SideDrawer;
+            this.data.activeSideDrawerClasses = classes.SideDrawer;
 
         drawerToggleButton.classList.toggle(classes.active);
         this.setState(updateObject( this.state , { drawerOpened: !this.state.drawerOpened } ));
     }
 
     onNavigateHandler = () => {
-        this.data.activeSideClasses = classes.SideDrawer;
+        this.data.activeSideDrawerClasses = classes.SideDrawer;
         if (this.data.toggleSideDrawerButton.current)
             this.data.toggleSideDrawerButton.current.classList.remove(classes.active);
         this.setState(updateObject(this.state, {drawerOpened: false}));
@@ -87,7 +87,7 @@ class SideDrawer extends Component{
                     <FontAwesomeIcon icon="angle-up" />
                     <FontAwesomeIcon icon="angle-down" />
                 </div>
-                <div className={ this.data.activeSideClasses }>
+                <div className={this.data.activeSideDrawerClasses }>
                     { sections }
                 </div>
             </>
