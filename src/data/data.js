@@ -264,7 +264,6 @@ export const blogSideLinks = {
       "url": "react-16-roadmap.html",
       "author": "Dan Abramov",
       "time": "2018-11-27",
-      }
     },
     "React Conf recap: Hooks, Suspense, and Concurrent Rendering": {
       "url": "react-conf-recap.html",
@@ -316,6 +315,7 @@ export const blogSideLinks = {
       "author": "Sophie Alpert",
       "time": "2018-03-01",
     },
+  }
 };
 
 export const codeExamples = {

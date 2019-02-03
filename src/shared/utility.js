@@ -64,7 +64,7 @@ export const initPageRouting = ( links, subpageName, directory, limit = 99) => {
                     <Route exact
                     key={name}
                     name={title}
-                    path={"/" + subpageName + "/" + links[section][name]}
+                    path={"/" + subpageName + "/" + (links[section][name].url ? links[section][name].url : links[section][name] )}
                     render={() => <>
                             <Helmet title={title + " - React"} />
                             <Page title={title} />
@@ -81,11 +81,9 @@ export const getCurrentRoute = (links, pathname, counter = 0) => {
     for (let section in links) {
         for (let name in links[section]) {
             if ( links[section][name].value && pathname.includes(links[section][name].value.url) ) {
-                console.log(counter);
                 return counter;
             }
             else if ( pathname.includes(links[section][name]) ){
-                console.log(counter);
                 return counter;
             }
             counter++;

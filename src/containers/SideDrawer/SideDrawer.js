@@ -23,7 +23,7 @@ class SideDrawer extends Component{
         if (this.props.links)
             for (let title in this.props.links) {
                 const sectionTopics = Object.values(this.props.links[title]);
-                if ( sectionTopics.find( (val) => window.location.pathname.includes(val)) )
+                if (sectionTopics.find((val) => window.location.pathname.includes(val) || window.location.pathname.includes(val.url) ) )
                     this.setState(updateObject( this.state , {activeSection: "sidebarSection" + counter} ));
                 counter++;
             }

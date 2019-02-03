@@ -1,6 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import { NavHashLink } from 'react-router-hash-link';
 
 import classes from './DrawerSection.module.scss';
@@ -16,19 +16,18 @@ export const DrawerSection = (props) => {
 
     const width = (window.innerWidth > 0) ? window.innerWidth : window.screen.width;
 
-    for( let key in props.items ){
-
+    for( let item in props.items ){
         let navItem;
 
-        if ( typeof(props.items[key]) === "object" ){
-            let sublist = [];
-            for ( let sublistItem in props.items[key] ){
-                if ( sublistItem !== "value" )
-                    sublist.push(
+        if ( typeof(props.items[item]) === "object" && !props.items[item].url ){
+            let nestedItems = [];
+            for ( let nestedItem in props.items[item] ){
+                if (nestedItem !== "value" )
+                    nestedItems.push(
                         <NavHashLink
-                            key={sublistItem}
+                            key={nestedItem}
                             activeClassName={classes.active}
-                            isActive={ () => props.currTopic === props.items[key][sublistItem] }
+                            isActive={ () => props.currTopic === props.items[item][nestedItem] }
                             scroll={el => {
                                 const distanceBetween = Math.abs(window.scrollY-el.offsetTop);
                                 const scrollBehavior = width < 880 || distanceBetween > 3000 ? 'auto' : 'smooth';
@@ -36,9 +35,9 @@ export const DrawerSection = (props) => {
                                 return el.scrollIntoView({ behavior: scrollBehavior, block: 'start' });
                             }}
                             onClick={props.onNavigateHandler}
-                            to={ window.location.pathname + props.items[key][sublistItem] }>
+                            to={ window.location.pathname + props.items[item][nestedItem] }>
 
-                                <span className={classes.subtitle}> {sublistItem} </span>
+                                <span className={classes.subtitle}> {nestedItem} </span>
                                 <span className={classes.current}>    |   </span> <br/>
 
                         </NavHashLink>);
@@ -46,10 +45,10 @@ export const DrawerSection = (props) => {
             }
 
             navItem = (
-                <div key={props.items[key]['value']}>
+                <div key={props.items[item]['value']}>
                     <NavHashLink
                     activeClassName={classes.active}
-                    isActive={ () => props.currTopic === props.items[key]['value'] }
+                    isActive={ () => props.currTopic === props.items[item]['value'] }
                     scroll={el => {
                         const distanceBetween = Math.abs(window.scrollY-el.offsetTop);
                         const scrollBehavior = width < 800 || distanceBetween > 3000 ? 'auto' : 'smooth';
@@ -57,29 +56,43 @@ export const DrawerSection = (props) => {
                         return el.scrollIntoView({ behavior: scrollBehavior, block: 'start' });
                     }}
                     onClick={props.onNavigateHandler}
-                    to={ window.location.pathname + props.items[key]['value'] }>
-                        <span className={classes.subtitle}> {key} </span>
+                    to={ window.location.pathname + props.items[item]['value'] }>
+                        <span className={classes.subtitle}> {item} </span>
                         <span className={classes.current}>    |   </span> <br/>
                     </NavHashLink>
                     <ul>
-                        { sublist }
+                        { nestedItems }
                     </ul>
                 </div>
             );
         }
-        else
+        else {
+            let url = ( props.items[item].url ? props.items[item].url : props.items[item] );
             navItem = (
-                <NavLink key={props.items[key]} onClick={props.onNavigateHandler} activeClassName={classes.active} to={ "/" + props.subpage + "/" + props.items[key]}>
-                    <span className={classes.subtitle}> {key} </span>
+                <NavLink key={url} onClick={props.onNavigateHandler} activeClassName={classes.active} to={`/${props.subpage}/${url}`}>
+                    <span className={classes.subtitle}> {item} </span>
                     <span className={classes.current}>    |   </span>
-                    <br/>
+                    <br />
                 </NavLink>
             );
+
+        }
+
+        if ( props.subpage === 'blog' && content.length > 9 ){
+            content.push(
+                <Link key={"all.html"} onClick={props.onNavigateHandler} to={`/${props.subpage}/all.html`}>
+                    <span className={classes.subtitle}> {"All posts..."} </span>
+                    <span className={classes.current}>    |   </span>
+                    <br />
+                </Link>
+            );
+            break;
+        }
 
         content.push( navItem );
 
         if (props.ordered)
-            content[content.length-1] = <li key={key}>{content[content.length-1]}</li>;
+            content[content.length-1] = <li key={item}>{content[content.length-1]}</li>;
     }
 
     let titleClasses = [classes.title];
