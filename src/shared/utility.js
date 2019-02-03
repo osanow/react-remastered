@@ -68,7 +68,7 @@ export const initPageRouting = ( links, subpageName, directory, limit = 99) => {
             if ( name !== "ordered" ){
                 counter++;
                 let importPath;
-                if (counter > limit)
+                if (counter > limit && !name.includes("All posts"))
                     importPath = () => import('../components/NotFoundPage/NotFoundPage');
                 else if ( links[section][name].url )
                     importPath = () => import(`../containers/${directory}/Pages/${links[section][name].url.replace('.html', '.js')}`);
@@ -86,28 +86,13 @@ export const initPageRouting = ( links, subpageName, directory, limit = 99) => {
                     render={() => <>
                             <Helmet title={title + " - React"} />
                             <Page title={title}
+                            links={links}
                             date={ dateFormat(links[section][name].time) }
                             author={links[section][name].author}/>
                         </>}
                     />);
             }
         }
-    }
-
-    if ( directory === 'BlogPage' ){
-        const AllPage = lazy(() => import(`../containers/${directory}/Pages/all.js`));
-
-        routes.push(
-            <Route exact
-            key={directory+"allPage"}
-            path={`/${subpageName}/all.html`}
-            render={ () => <>
-                <Helmet title={'React - All posts'} />
-                <AllPage
-                links={links}
-                title={'All posts'} />
-            </> } />
-        );
     }
 
     return routes;

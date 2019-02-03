@@ -79,13 +79,6 @@ export const DrawerSection = (props) => {
         }
 
         if ( props.subpage === 'blog' && content.length > 9 ){
-            content.push(
-                <Link key={"all.html"} onClick={props.onNavigateHandler} to={`/${props.subpage}/all.html`}>
-                    <span className={classes.subtitle}> {"All posts..."} </span>
-                    <span className={classes.current}>    |   </span>
-                    <br />
-                </Link>
-            );
             break;
         }
 

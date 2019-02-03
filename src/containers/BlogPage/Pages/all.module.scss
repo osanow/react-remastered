@@ -1,0 +1,34 @@
+@import "../../../shared/colors.module.scss";
+
+.title{
+    color: $sec-color;
+    font-weight: 700;
+    font-size: 3rem;
+    line-height: 3rem;
+    width: 100%;
+    text-align: center;
+
+    @media(min-width: 55rem){
+        font-size: 4rem;
+        line-height: 4rem;
+    }
+}
+
+.postsList {
+    list-style: none;
+    margin-top: 2rem;
+
+    display: grid;
+    justify-content: center;
+    grid-gap: 2rem;
+    grid-auto-flow: row;
+    grid-template-columns: repeat(1, minmax(6rem, auto));
+    grid-auto-rows: 1fr;
+
+    @media (min-width: 30rem){
+        grid-template-columns: repeat(2, minmax(10rem, 16rem));
+    }
+    @media (min-width: 65rem){
+        grid-template-columns: repeat(3, minmax(10rem, 20rem));
+    }
+}

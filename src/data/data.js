@@ -300,6 +300,7 @@ export const blogSideLinks = {
       "author": "Andrew Clark",
       "time": "2018-05-23",
     },
+    "All posts...": "all.html",
     "React v16.3.0: New lifecycles and context API": {
       "url": "react-v-16-3.html",
       "author": "Brian Vaughn",
@@ -309,11 +310,6 @@ export const blogSideLinks = {
       "url": "update-on-async-rendering.html",
       "author": "Brian Vaughn",
       "time": "2018-03-27",
-    },
-    "Sneak Peek: Beyond React 16": {
-      "url": "sneak-peek-beyond-react-16.html",
-      "author": "Sophie Alpert",
-      "time": "2018-03-01",
     },
   }
 };
