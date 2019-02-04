@@ -1,4 +1,4 @@
-@import "../../shared/colors.module.scss";
+@import "../../../shared/colors.module.scss";
 
 .codeLive{
     display: flex;
@@ -27,7 +27,7 @@
             max-height: 22rem;
             overflow: auto;
         }
-        
+
         width: 100%;
         background-color: $sec-color;
         border-radius: 10px 10px 0 0;

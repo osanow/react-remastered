@@ -8,7 +8,7 @@ import {
   } from 'react-live';
 
 import { codeExamples } from '../../data/data';
-import classes from './LiveEditorComp.module.scss';
+import classes from './LiveEditor.module.scss';
 
 class LiveEditorComp extends Component{
 
