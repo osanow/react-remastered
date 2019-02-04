@@ -7,7 +7,7 @@ import {
     LivePreview,
   } from 'react-live';
 
-import { codeExamples } from '../../data/data';
+import { codeExamples } from '../../../data/data';
 import classes from './LiveEditor.module.scss';
 
 class LiveEditorComp extends Component{

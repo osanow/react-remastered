@@ -71,7 +71,7 @@ class TutPage extends Component {
                 }
             }
             refreshPosition(this.props);
-        }, 1000);
+        }, 500);
     }
 
     onScrollHandler = () => {

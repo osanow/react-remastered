@@ -1,6 +1,5 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { HashLink } from 'react-router-hash-link';
 
 import NavTitle from '../../../components/UI/NavTitle/NavTitle';
 import SyntaxHighlighter from '../../../components/UI/SyntaxHighlighter/SyntaxHighlighter';
