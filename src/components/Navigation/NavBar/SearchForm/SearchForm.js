@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faSearch, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import data from '../../../../algoliaSearch';
 
+import { updateObject } from '../../../../shared/utility';
 import classes from './SearchForm.module.scss';
 
 library.add(faSearch,faTrashAlt);
@@ -18,11 +20,18 @@ class SearchForm extends Component {
     }
 
     onChangeHandler = ( el ) => {
-        this.setState( { value: el.target.value } );
+        data.search({ query: el.target.value }).then(content => {
+            console.log(content.hits);
+        }).catch(function (err) {
+            console.log(err);
+            console.log(err.debugData);
+        });
+
+        this.setState( updateObject(this.state, { value: el.target.value }) );
     }
 
     clearInput = () => {
-        this.setState( { value: '' } );
+        this.setState(updateObject(this.state, { value: '' }));
     }
 
     render() {
