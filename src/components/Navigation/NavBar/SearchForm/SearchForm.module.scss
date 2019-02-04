@@ -1,6 +1,7 @@
 @import "../../../../shared/colors.module.scss";
 
 .SearchForm{
+    position: relative;
     display: flex;
     cursor: text;
     height: 2rem;
@@ -59,7 +60,7 @@
 }
 
 .active{
-    background: lighten($sec-color,4);
+    background: $active-color;
     border-radius: 5px;
     width: 19rem;
     margin: auto 0;

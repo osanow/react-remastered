@@ -6,6 +6,7 @@ import data from '../../../../algoliaSearch';
 
 import { updateObject } from '../../../../shared/utility';
 import classes from './SearchForm.module.scss';
+import ResultBox from './ResultBox/ResultBox';
 
 library.add(faSearch,faTrashAlt);
 
@@ -13,6 +14,8 @@ class SearchForm extends Component {
 
     state = {
         value: '',
+        showResults: false,
+        results: [],
     }
 
     onFocusToggleHandler = ( el ) => {
@@ -20,18 +23,32 @@ class SearchForm extends Component {
     }
 
     onChangeHandler = ( el ) => {
-        data.search({ query: el.target.value }).then(content => {
-            console.log(content.hits);
-        }).catch(function (err) {
-            console.log(err);
-            console.log(err.debugData);
-        });
+        let value = el.target.value;
+        console.log(value);
 
-        this.setState( updateObject(this.state, { value: el.target.value }) );
+        data.search({ query: value })
+            .then(content => {
+                console.log(content.hits);
+                if (value !== this.state.value )
+                    this.setState(updateObject(this.state, {
+                        value,
+                        results: content.hits,
+                        showResults: !(value === "")
+                    }));
+            }).catch(err => {
+                console.log(err);
+                console.log(err.debugData);
+                this.setState(updateObject(this.state, {
+                    value,
+                    showResults: false
+                }));
+            });
     }
 
     clearInput = () => {
-        this.setState(updateObject(this.state, { value: '' }));
+        this.setState(updateObject(this.state, {
+            value: '',
+            showResults: false }));
     }
 
     render() {
@@ -54,6 +71,8 @@ class SearchForm extends Component {
                 <FontAwesomeIcon icon="trash-alt"
                 onClick={ this.clearInput }
                 style={ this.state.value ? '' : { opacity: '0' } } />
+
+                { this.state.showResults ? <ResultBox results={this.state.results} query={this.state.value} /> : null }
 
             </form>
         );
