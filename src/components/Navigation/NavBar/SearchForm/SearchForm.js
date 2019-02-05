@@ -20,9 +20,11 @@ class SearchForm extends Component {
 
     onFocusToggleHandler = ( el ) => {
         el.target.parentElement.classList.toggle(classes.active);
-        this.setState(updateObject(this.state , {
-            showResults: !this.state.showResults && el.target.value !== "",
-        } ));
+        setTimeout( () => {
+            this.setState(updateObject(this.state, {
+                showResults: !this.state.showResults && this.inputElem.value !== "",
+            }));
+        }, 100);
     }
 
     onChangeHandler = ( el ) => {

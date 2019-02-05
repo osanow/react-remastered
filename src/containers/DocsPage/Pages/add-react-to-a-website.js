@@ -172,7 +172,7 @@ return (
             </blockquote>
             <p>Congratulations! You just added a production-ready JSX setup to your project.</p>
 
-            <NavTitle id="rut-jsx-preprocessor"><h3>Run JSX Preprocessor</h3></NavTitle>
+            <NavTitle id="run-jsx-preprocessor"><h3>Run JSX Preprocessor</h3></NavTitle>
             <p>Create a folder called src and run this terminal command:</p>
 
             <SyntaxHighlighter code={'npx babel --watch src --out-dir . --presets react-app/prod'} />

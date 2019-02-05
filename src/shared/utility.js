@@ -38,7 +38,7 @@ export const toCapitalize = (text) => {
 }
 
  export const refreshPosition = ( props, prevProps ) => {
-    if (prevProps && prevProps.location.pathname === props.location.pathname && !prevProps.location.hash && props.location.hash)
+     if (prevProps && prevProps.location.pathname === props.location.pathname && !prevProps.location.hash && props.location.hash && props.location.hash === prevProps.location.hash)
         return;
     else if ( props.location.hash ){
 
