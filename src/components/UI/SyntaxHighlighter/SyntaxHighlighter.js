@@ -16,13 +16,12 @@ const SyntaxHighlighter = (props) => {
     content = content.replace(new RegExp(`(</|/>+)`,"g"),`#punctuation#$&#END#`);
     content = content.replace(new RegExp(`([<>=",\\[\\]():{}.;]+)`,"g"),`#punctuation#$&#END#`);
     content = content.replace(new RegExp("#END#" , "g"), `</span>`);
-    content = content.replace(new RegExp("#(\\w+)#" , "g"), 
+    content = content.replace(new RegExp("#(\\w+)#" , "g"),
         (el) => `<span class=${classes[el.replace(new RegExp('#+','g') ,'')]}>`);
 
     return (
         <div className={classes.HighlighterBox}>
-            <pre 
-            className={classes.SyntaxHighlighter} 
+            <pre className={classes.SyntaxHighlighter}
             dangerouslySetInnerHTML={{__html: content}} />
         </div>
     );

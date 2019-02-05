@@ -9,22 +9,21 @@ export const updateObject = (oldObject, updatedProperties) => {
     };
 };
 
-Date.prototype.monthNames = [
-    "January", "February", "March",
-    "April", "May", "June",
-    "July", "August", "September",
-    "October", "November", "December"
-];
+function getMonthName(number) {
+    const monthNames = [
+        "January", "February", "March",
+        "April", "May", "June",
+        "July", "August", "September",
+        "October", "November", "December"
+    ];
 
-Date.prototype.getMonthName = function () {
-    return this.monthNames[this.getMonth()];
-};
+    return monthNames[number];
+}
 
 export const dateFormat = (date = "1/1/1990") => {
-
     const dataArgs = date.split("-").join(",");
     const converted = new Date(dataArgs);
-    return `${converted.getMonthName()} ${converted.getDate()}, ${converted.getFullYear()}`;
+    return `${getMonthName(converted.getMonth())} ${converted.getDate()}, ${converted.getFullYear()}`;
 }
 
 export const toCapitalize = (text) => {
@@ -38,26 +37,34 @@ export const toCapitalize = (text) => {
 }
 
  export const refreshPosition = ( props, prevProps ) => {
-     if (prevProps && prevProps.location.pathname === props.location.pathname && !prevProps.location.hash && props.location.hash && props.location.hash === prevProps.location.hash)
+
+    if (prevProps && prevProps.location.pathname === props.location.pathname && !prevProps.location.hash && props.location.hash && props.location.hash === prevProps.location.hash)
         return;
     else if ( props.location.hash ){
-
         const name = props.location.hash.replace('#' , '');
-        const element = document.getElementById(name);
 
-        if (element){
+        let counter = 0;
+        const timer = setInterval( () => {
+            const element = document.getElementById(name);
 
-            window.scrollTo({
-                top: element.offsetTop + 50,
-                behavior: "smooth",
-            });
-        }
+            if ( counter > 10 )
+                clearInterval( timer );
+            else if (element){
+                clearInterval(timer);
+                window.scrollTo({
+                    top: element.offsetTop + 50,
+                    behavior: "smooth",
+                });
+            }
+        }, 100 );
+
     }
-    else
+    else{
         window.scrollTo({
             top: 0,
             behavior: prevProps && prevProps.location.pathname === props.location.pathname ? "smooth" : "auto",
         });
+    }
 }
 
 export const initPageRouting = ( links, subpageName, directory, limit = 99) => {

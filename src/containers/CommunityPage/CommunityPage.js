@@ -28,9 +28,7 @@ class DocsPage extends Component {
     }
 
     componentDidMount() {
-        setTimeout(() => {
-            refreshPosition(this.props);
-        }, 200);
+        refreshPosition(this.props);
     }
 
     componentWillUpdate(nextProps, nextState) {

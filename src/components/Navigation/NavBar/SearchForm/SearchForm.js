@@ -31,7 +31,7 @@ class SearchForm extends Component {
         if (this.searchTimer) clearTimeout(this.searchTimer);
         this.searchTimer = setTimeout(() => {
             this.searchHandler( this.inputElem.value );
-        }, 400);
+        }, 200);
 
         this.setState(updateObject(this.state, { value: el.target.value } ));
     }
