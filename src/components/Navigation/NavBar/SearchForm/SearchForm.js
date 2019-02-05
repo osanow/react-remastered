@@ -20,15 +20,14 @@ class SearchForm extends Component {
 
     onFocusToggleHandler = ( el ) => {
         el.target.parentElement.classList.toggle(classes.active);
+        this.setState(updateObject(this.state , { showResults: !this.state.showResults && el.target.value !== "" } ));
     }
 
     onChangeHandler = ( el ) => {
         let value = el.target.value;
-        console.log(value);
 
         data.search({ query: value })
             .then(content => {
-                console.log(content.hits);
                 if (value !== this.state.value )
                     this.setState(updateObject(this.state, {
                         value,

@@ -8,7 +8,6 @@ const ResultItem = ({data, prevTitle}) => {
     let content = data._snippetResult.content.matchLevel === "none" || data._highlightResult.subtitle.matchLevel !== "none" ?
         null : <p className={classes.content} dangerouslySetInnerHTML={{ __html: "..." + data._snippetResult.content.value + "..." }}></p>;
 
-    console.log(data);
     return (
         <li>
             <Link className={classes.ResultItem} to="/">

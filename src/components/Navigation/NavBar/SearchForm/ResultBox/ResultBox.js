@@ -6,7 +6,6 @@ import ResultSection from './ResultSection/ResultSection';
 const ResultBox = ({results, query}) => {
     const resultSections = {};
 
-    console.log(results);
     results.forEach( result => {
         if ( resultSections[result.subpage] )
             resultSections[result.subpage].push( { ...result } );
@@ -22,7 +21,6 @@ const ResultBox = ({results, query}) => {
             content.push(<ResultSection key={result} data={resultSections[result]} title={result} />);
         }
     }
-    console.log(resultSections);
 
     return (
         <div className={classes.ResultBox}>
