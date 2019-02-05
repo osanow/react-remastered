@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 
 import NavTitle from '../../../components/UI/NavTitle/NavTitle';
-import SyntaxHighlighter from '../../../components/UI/SyntaxHighlighter/SyntaxHighlighter';
+
+const SyntaxHighlighter = React.lazy(() => import('../../../components/UI/SyntaxHighlighter/SyntaxHighlighter'));
 
 const page = ({title}) => (
     <>
@@ -36,7 +37,7 @@ const page = ({title}) => (
             <NavTitle id="step-1-add-a-dom-container-to-the-html"><h3>Step 1: Add a DOM Container to the HTML</h3></NavTitle>
             First, open the HTML page you want to edit. Add an empty <code>{"<div>"}</code> tag to mark the spot where you want to display something with React. For example:
 
-            <Suspense fallback={<h2>Loading code example...</h2>}>
+            <Suspense fallback={<h4 style={{ margin: '10vh 20vw', textAlign: 'center' }}>Loading code example...</h4>}>
                 <SyntaxHighlighter code={`<!-- ... existing HTML ... -->
 
 <div id="like_button_container"></div>
@@ -57,7 +58,7 @@ const page = ({title}) => (
             <NavTitle id="step-2-add-the-script-tags"><h3>Step 2: Add the Script Tags</h3></NavTitle>
             <p>Next, add three <code>{"<script>"}</code> tags to the HTML page right before the closing <code>{"</body>"}</code> tag:</p>
 
-            <Suspense fallback={<h3>Loading code example...</h3>}>
+            <Suspense fallback={<h4 style={{ margin: '10vh 20vw', textAlign: 'center' }}>Loading code example...</h4>}>
                 <SyntaxHighlighter code={`<!-- ... other HTML ... -->
 
 <!-- Load React. -->
@@ -85,7 +86,7 @@ const page = ({title}) => (
 
             <p>After <a href="https://cdn.rawgit.com/gaearon/0b180827c190fe4fd98b4c7f570ea4a8/raw/b9157ce933c79a4559d2aa9ff3372668cce48de7/LikeButton.js" target="_blank" rel="noopener noreferrer"><strong>the starter code</strong></a>, add two lines to the bottom of <code>like_button.js</code>:</p>
 
-            <Suspense fallback={<h2>Loading code example...</h2>}>
+            <Suspense fallback={<h4 style={{ margin: '10vh 20vw', textAlign: 'center' }}>Loading code example...</h4>}>
                 <SyntaxHighlighter code={` // ... the starter code you pasted ...
 
 const domContainer = document.querySelector('#like_button_container');
@@ -115,8 +116,12 @@ ReactDOM.render(e(LikeButton), domContainer);`} />
             <p>Before deploying your website to production, be mindful that unminifed JavaScript can significantly slow down the page for your users.</p>
             <p>If you already minify the application scripts, <strong>your site will be production-ready</strong> if you
             ensure that the deployed HTML loads the versions of React ending in <code>production.min.js</code>:</p>
-            <SyntaxHighlighter code={`<script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin ></script>
+
+            <Suspense fallback={<h4 style={{ margin: '10vh 20vw', textAlign: 'center' }}>Loading code example...</h4>}>
+                <SyntaxHighlighter code={`<script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin ></script>
 <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin ></script>`} />
+            </Suspense>
+
             <p>If you don’t have a minification step for your scripts, <a href="https://gist.github.com/gaearon/42a2ffa41b8319948f9be4076286e1f3" target="_blank" rel="noopener noreferrer">here’s one way to set it up</a>.</p>
         </section>
         <hr/>
@@ -125,7 +130,7 @@ ReactDOM.render(e(LikeButton), domContainer);`} />
             <p>In the examples above, we only relied on features that are natively supported by the browsers.
                 This is why we used a JavaScript function call to tell React what to display:</p>
 
-            <Suspense fallback={<h2>Loading code example...</h2>}>
+            <Suspense fallback={<h4 style={{ margin: '10vh 20vw', textAlign: 'center' }}>Loading code example...</h4>}>
                 <SyntaxHighlighter code={`const e = React.createElement;
  //Display a "Like" <button>
 return e(
@@ -135,7 +140,7 @@ return e(
 );`} />
             </Suspense>
             <p>However, React also offers an option to use JSX instead:</p>
-            <Suspense fallback={<h2>Loading code example...</h2>}>
+            <Suspense fallback={<h4 style={{ margin: '10vh 20vw', textAlign: 'center' }}>Loading code example...</h4>}>
                 <SyntaxHighlighter code={` // Display a "Like" <button>
 return (
     <button onClick={() => this.setState({ liked: true })}>
@@ -149,7 +154,9 @@ return (
             <NavTitle id="quickly-try-jsx"><h3>Quickly Try JSX</h3></NavTitle>
             <p>The quickest way to try JSX in your project is to add this {'<script>'} tag to your page:</p>
 
-            <SyntaxHighlighter code={`<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>`} />
+            <Suspense fallback={<h4 style={{ margin: '10vh 20vw', textAlign: 'center' }}>Loading code example...</h4>}>
+                <SyntaxHighlighter code={`<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>`} />
+            </Suspense>
             <p>Now you can use JSX in any <code>{`<script>`}</code> tag by adding <code>type="text/babel"</code> attribute to it. Here is <a target="_blank" rel="noopener noreferrer" href="https://raw.githubusercontent.com/reactjs/reactjs.org/master/static/html/single-file-example.html">an example
                 HTML file with JSX</a> that you can download and play with.</p>
             <p>This approach is fine for learning and creating simple demos. However, it makes your website slow and <strong>isn’t
@@ -175,7 +182,10 @@ return (
             <NavTitle id="run-jsx-preprocessor"><h3>Run JSX Preprocessor</h3></NavTitle>
             <p>Create a folder called src and run this terminal command:</p>
 
-            <SyntaxHighlighter code={'npx babel --watch src --out-dir . --presets react-app/prod'} />
+            <Suspense fallback={<h4 style={{ margin: '10vh 20vw', textAlign: 'center' }}>Loading code example...</h4>}>
+                <SyntaxHighlighter code={'npx babel --watch src --out-dir . --presets react-app/prod'} />
+            </Suspense>
+
             <blockquote>
                 <h3>Note</h3><br/>
                 npx is not a typo — it’s a <a target="_blank" rel="noopener noreferrer" href="https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b">package runner tool that comes with npm 5.2+</a>.

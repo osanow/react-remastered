@@ -1,8 +1,9 @@
-import React from 'react';
+import React, {Suspense} from 'react';
 import { Link } from 'react-router-dom';
 
 import NavTitle from '../../../components/UI/NavTitle/NavTitle';
-import SyntaxHighlighter from '../../../components/UI/SyntaxHighlighter/SyntaxHighlighter';
+
+const SyntaxHighlighter = React.lazy(() => import('../../../components/UI/SyntaxHighlighter/SyntaxHighlighter'));
 
 const page = ({title}) => (
     <>
@@ -49,9 +50,11 @@ const page = ({title}) => (
             <p>It sets up your development environment so that you can use the latest JavaScript features, provides a nice developer experience,
                 and optimizes your app for production. You’ll need to have Node >= 6 and npm >= 5.2 on your machine. To create a project, run:</p>
 
-            <SyntaxHighlighter code={`npx create-react-app my-app
+            <Suspense fallback={<h4 style={{ margin: '10vh 20vw', textAlign: 'center' }}>Loading code example...</h4>}>
+                <SyntaxHighlighter code={`npx create-react-app my-app
 cd my-app
 npm start`} />
+            </Suspense>
             <blockquote>
                 <h3>Note</h3><br/>
                 npx on the first line is not a typo — it’s a package runner tool that comes with npm 5.2+.

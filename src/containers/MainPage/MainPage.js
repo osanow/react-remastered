@@ -59,7 +59,7 @@ class MainPage extends Component{
                                 see the raw JavaScript code produced by the JSX compilation step.</p>
                             </div>
 
-                            <Suspense fallback={<h4 style={{margin: '3rem auto'}}>Loading live JSX editor...</h4>}>
+                            <Suspense fallback={<h4 style={{margin: '25vh 30vw'}}>Loading live JSX editor...</h4>}>
                                 <LiveEditor codeExample='simple' />
                             </Suspense>
                         </div>
@@ -72,7 +72,7 @@ class MainPage extends Component{
                                 When a component’s state data changes, the rendered markup will be updated by re-invoking <code>render()</code>.</p>
                             </div>
 
-                            <Suspense fallback={<h4 style={{margin: '3rem auto'}}>Loading live JSX editor...</h4>}>
+                            <Suspense fallback={<h4 style={{ margin: '25vh 30vw' }}>Loading live JSX editor...</h4>}>
                                 <LiveEditor codeExample='stateful' />
                             </Suspense>
                         </div>
@@ -86,7 +86,7 @@ class MainPage extends Component{
                                 using event delegation.</p>
                             </div>
 
-                            <Suspense fallback={<h4 style={{margin: '3rem auto'}}>Loading live JSX editor...</h4>}>
+                            <Suspense fallback={<h4 style={{ margin: '25vh 30vw' }}>Loading live JSX editor...</h4>}>
                                 <LiveEditor codeExample='application' />
                             </Suspense>
                         </div>
@@ -99,7 +99,7 @@ class MainPage extends Component{
                                 This example uses <strong>remarkable</strong>, an external Markdown library, to convert the <code>{"<textarea>"}</code>’s value in real time.</p>
                             </div>
 
-                            <Suspense fallback={<h4 style={{margin: '3rem auto'}}>Loading live JSX editor...</h4>}>
+                            <Suspense fallback={<h4 style={{ margin: '25vh 30vw' }}>Loading live JSX editor...</h4>}>
                                 <LiveEditor codeExample='external' />
                             </Suspense>
                         </div>
