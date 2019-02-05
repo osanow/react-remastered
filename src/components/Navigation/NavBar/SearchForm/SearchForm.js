@@ -20,7 +20,9 @@ class SearchForm extends Component {
 
     onFocusToggleHandler = ( el ) => {
         el.target.parentElement.classList.toggle(classes.active);
-        this.setState(updateObject(this.state , { showResults: !this.state.showResults && el.target.value !== "" } ));
+        this.setState(updateObject(this.state , {
+            showResults: !this.state.showResults && el.target.value !== "",
+        } ));
     }
 
     onChangeHandler = ( el ) => {
@@ -53,11 +55,10 @@ class SearchForm extends Component {
     render() {
         return (
             <form
-            onClick={ () => this.inputElem.focus() }
             className={classes.SearchForm}
             onSubmit={ (el) => { el.preventDefault() } } >
 
-                <FontAwesomeIcon icon="search" />
+                <FontAwesomeIcon icon="search" onClick={() => this.inputElem.focus()} />
 
                 <input type="text" placeholder="Search"
                 ref={(inp) => {this.inputElem = inp} }

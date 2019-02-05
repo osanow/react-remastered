@@ -37,10 +37,10 @@
         transition: opacity 0.2s ease-in-out;
         opacity: 1;
         width: 10%;
+        cursor: pointer;
 
         &:last-of-type{
             display: none;
-            cursor: pointer;
 
             @media(min-width: 30rem){
                 display: inline;

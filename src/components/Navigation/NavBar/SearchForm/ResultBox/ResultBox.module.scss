@@ -44,6 +44,8 @@
 
     @media( min-width: 45rem ){
         width: 300%;
+        min-width: 30rem;
+        max-width: 40rem;
         right: 0;
     }
 }
