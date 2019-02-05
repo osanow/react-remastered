@@ -26,27 +26,31 @@ class SearchForm extends Component {
     }
 
     onChangeHandler = ( el ) => {
-        let value = el.target.value;
+        if (this.searchTimer) clearTimeout(this.searchTimer);
+        this.searchTimer = setTimeout(() => {
+            this.searchHandler( this.inputElem.value );
+        }, 400);
 
-        data.search({ query: value })
+        this.setState(updateObject(this.state, { value: el.target.value } ));
+    }
+
+    searchHandler = (query) => {
+        data.search({ query: query })
             .then(content => {
-                if (value !== this.state.value )
-                    this.setState(updateObject(this.state, {
-                        value,
-                        results: content.hits,
-                        showResults: !(value === "")
-                    }));
+                this.setState(updateObject(this.state, {
+                    results: content.hits,
+                    showResults: !(query === "")
+                }));
             }).catch(err => {
                 console.log(err);
                 console.log(err.debugData);
                 this.setState(updateObject(this.state, {
-                    value,
                     showResults: false
                 }));
             });
     }
 
-    clearInput = () => {
+    clearInputHandler = () => {
         this.setState(updateObject(this.state, {
             value: '',
             showResults: false }));
@@ -69,7 +73,7 @@ class SearchForm extends Component {
                 onChange={this.onChangeHandler} />
 
                 <FontAwesomeIcon icon="trash-alt"
-                onClick={ this.clearInput }
+                onClick={this.clearInputHandler }
                 style={ this.state.value ? '' : { opacity: '0' } } />
 
                 { this.state.showResults ? <ResultBox results={this.state.results} query={this.state.value} /> : null }
