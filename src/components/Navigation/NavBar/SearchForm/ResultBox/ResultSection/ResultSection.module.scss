@@ -1,0 +1,19 @@
+@import "../../../../../../shared/colors.module.scss";
+
+.ResultSection{
+    .title{
+        color: $link-color;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 700;
+        font-size: 1rem;
+        background-color: transparent;
+        text-align: left;
+        padding: 0.3rem 0.5rem;
+    }
+
+    .results{
+        background-color: white;
+        list-style: none;
+    }
+}

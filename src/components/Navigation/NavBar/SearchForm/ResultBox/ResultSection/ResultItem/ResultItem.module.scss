@@ -1,0 +1,72 @@
+@import "../../../../../../../shared/colors.module.scss";
+
+.ResultItem{
+    display: flex;
+    position: relative;
+    justify-content: space-around;
+    color: $active-color;
+    text-decoration: none;
+    border-right: 2px solid transparent;
+
+    .title{
+        color: black;
+        align-self: center;
+        position: relative;
+        font-weight: 300;
+        font-size: 0.85rem;
+        padding: 0.4rem;
+        margin: 0.2rem 0.4rem;
+        border-right: 1px solid rgba(202, 199, 199, 0.5);
+        width: 30%;
+        text-align: right;
+        min-height: 3.5rem;
+
+        @media(min-width: 30rem){
+            font-size: 0.95rem;
+            padding: 0.7rem;
+            margin: 0.3rem;
+        }
+    }
+
+    .desc{
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        padding: 0.5rem;
+        margin: 0.2rem;
+        width: 65%;
+        justify-content: space-around;
+        align-items: center;
+
+        .subtitle{
+            color: black;
+            font-size: 0.9rem;
+            font-weight: 700;
+            line-height: 0.9;
+            text-align: center;
+
+            & em {
+                background-color: yellow;
+                font-style: none;
+                text-decoration: none;
+            }
+        }
+
+        .content{
+            font-size: 0.8rem;
+            margin-top: 1rem;
+            line-height: 1.1;
+
+            & em {
+                border-bottom: 2px solid royalblue;
+                font-style: none;
+                text-decoration: none;
+            }
+        }
+    }
+
+    &:hover{
+        border-right: 2px solid $main-color;
+        background-color: whitesmoke;
+    }
+}

@@ -3,17 +3,24 @@
 .ResultBox{
     position: absolute;
     top: 120%;
-    right: 0;
     z-index: 1;
 
-    border-radius: 5px;
     background-color: $active-color;
+    border-radius: 5px;
     box-shadow: 2px 2px 5px 1px rgba(0,0,0,0.3);
+
+    right: -10vw;
+    width: 90vw;
+
+    .Results{
+        text-align: center;
+    }
 
     .Brand{
         background-color: white;
         color: $active-color;
         text-align: right;
+        padding: 0.1rem;
     }
 
     &::after{
@@ -27,7 +34,16 @@
         display: block;
         position: absolute;
         top: -0.5rem;
-        right: 3rem;
+        right: 30%;
         z-index: -1;
+
+        @media(min-width: 45rem ){
+            right: 4rem;
+        }
+    }
+
+    @media( min-width: 45rem ){
+        width: 300%;
+        right: 0;
     }
 }

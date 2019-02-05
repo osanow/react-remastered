@@ -14,7 +14,7 @@ const ResultBox = ({results, query}) => {
             resultSections[result.subpage] = [ { ...result } ]
     } );
 
-    let content = <p>No results found for query "{query}" </p>;
+    let content = <p style={{margin: '0.5rem'}}>No results found for query "{query}" </p>;
 
     if ( results.length > 0 ){
         content = [];

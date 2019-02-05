@@ -12,7 +12,6 @@ index.setSettings({
     ],
     highlightPreTag: '<em class="search-highlight">',
     highlightPostTag: '</em>',
-
 })
 
 export default index;
