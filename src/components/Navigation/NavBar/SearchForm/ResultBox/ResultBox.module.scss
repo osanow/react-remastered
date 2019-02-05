@@ -11,6 +11,8 @@
 
     right: -10vw;
     width: 90vw;
+    max-height: 65vh;
+    overflow: auto;
 
     .Results{
         text-align: center;
@@ -45,7 +47,8 @@
     @media( min-width: 45rem ){
         width: 300%;
         min-width: 30rem;
-        max-width: 40rem;
+        max-width: 45rem;
+        max-height: 95vh;
         right: 0;
     }
 }

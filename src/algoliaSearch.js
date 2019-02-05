@@ -10,7 +10,7 @@ index.setSettings({
     attributesToSnippet: [
         'content:15'
     ],
-    highlightPreTag: '<em class="search-highlight">',
+    highlightPreTag: '<em>',
     highlightPostTag: '</em>',
 })
 
